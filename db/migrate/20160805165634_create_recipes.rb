@@ -9,7 +9,7 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.integer :cooktime
       t.text :ingredients
       t.text :directions
-      t.references :user, foreign_key: true
+
 
       t.timestamps
     end
