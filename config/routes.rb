@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  resources :recipes
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/destroy'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  resources :recipes, :comments
   devise_for :users
   root 'statics#homepage'
 

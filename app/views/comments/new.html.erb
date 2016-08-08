@@ -1,0 +1,24 @@
+<h1>Comments#new</h1>
+
+<!-- (comments_new_path) -->
+<%= form_for(comments_new_path) do |f| %>
+
+<fieldset class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, autofocus: true, class:"form-control" %>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.label :content %>
+  <%= f.text_area :content, class:"form-control"%>
+</fieldset>
+
+<%= link_to 'Back', recipes_path %>
+
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+
+<% end %>

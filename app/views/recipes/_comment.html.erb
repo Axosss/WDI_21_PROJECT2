@@ -1,0 +1,34 @@
+<h1>Comments#new</h1>
+
+
+<h1>Comments:</h1>
+  <% @recipe.comments.each do |comment| %>
+    <div class="comment">
+      <h3><%=comment.title %></h3>
+      <p><%=comment.content %></p>
+      <p><small>Added by <%= comment.user.username %></small> </p>
+    </div>
+  <% end %>
+
+<!-- (comments_new_path) -->
+<%= form_for(comment) do |f| %>
+
+<fieldset class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, autofocus: true, class:"form-control" %>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.label :content %>
+  <%= f.text_area :content, class:"form-control"%>
+</fieldset>
+
+<%= link_to 'Back', recipes_path %>
+
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+
+<% end %>

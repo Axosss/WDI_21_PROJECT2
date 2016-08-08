@@ -13,6 +13,10 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
+    # new stuff here
+    @comment=Comment.new
+    session[:current_recipe_id] = params[:id]
+    #
   end
 
   # GET /recipes/new

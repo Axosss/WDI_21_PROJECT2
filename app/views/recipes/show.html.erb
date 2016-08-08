@@ -47,12 +47,13 @@
   <%= @recipe.directions %>
 </p>
 
-
-
-
-
+<!-- new stuff here -->
+ 
+  <%= render "comment", comment: @comment %>
 
 <% if user_signed_in? %>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+
+
 <% end %> 
