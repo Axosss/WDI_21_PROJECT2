@@ -1,2 +1,16 @@
 <h1>Users Show</h1>
 
+<p> Hey Chef <%= @user.username %> !</p>
+<br>
+<!-- New recipe logo link -->
+<%= link_to image_tag("newrecipelogo.png"), new_recipe_path, title: 'New Recipe' %>
+
+<!-- Link to all of user recipes -->
+<p>Your recipes<p>
+<ul>
+  <% @user.recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe.title, recipe_path(recipe) %>
+    </li>
+  <% end %>
+</ul>

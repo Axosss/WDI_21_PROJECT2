@@ -11,45 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <fieldset class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title %>
-  </div>
+  </fieldset>
 
-  <div class="field">
+  <fieldset class="form-group">
     <%= f.label :description %>
     <%= f.text_area :description %>
-  </div>
+  </fieldset>
 
-  <div class="field">
+  <fieldset class="form-group">
     <%= f.label :difficulty %>
     <%= f.number_field :difficulty %> From 1-5
-  </div>
+  </fieldset>
 
-  <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image %>
-  </div>
+  <fieldset class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :recipe_image %>
+  </fieldset>
 
-  <div class="field">
+  <fieldset class="form-group">
     <%= f.label :preptime %>
     <%= f.number_field :preptime %>
-  </div>
+  </fieldset>
 
-  <div class="field">
+  <fieldset class="form-group">
     <%= f.label :cooktime %>
     <%= f.number_field :cooktime %>
-  </div>
+  </fieldset>
 
-  <div class="field">
+  <fieldset>
     <%= f.label :ingredients %>
     <%= f.text_area :ingredients %>
-  </div>
+  </fieldset>
 
-  <div class="field">
+  <fieldset>
     <%= f.label :directions %>
     <%= f.text_area :directions %>
-  </div>
+  </fieldset>
 
   <div class="actions">
     <%= f.submit %>

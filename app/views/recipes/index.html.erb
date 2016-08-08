@@ -3,7 +3,7 @@
 <h1>Recipes</h1>
 
 <table>
-  <thead>
+<!--   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
@@ -17,23 +17,47 @@
     </tr>
   </thead>
 
+
+
+ -->
+  
+  <div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-6">
+      <div class="card">
+        <% if !recipe.recipe_image.blank? %>
+          <%= link_to image_tag(recipe.recipe_image.url), recipe_path(recipe), :class => 'card-img-top' %>
+        <% else %>
+          <img src="http://www.fillmurray.com/300/300" class="recipe-index">
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<!-- 
   <tbody>
-    <% @recipes.each do |recipe| %>
+  <div class="row">
+    <%# @recipes.each do |recipe| %>
+    <div class="col-md-4">
+      <div class="thumbnail">
       <tr>
-        <td><%= recipe.title %></td>
-        <td><%= recipe.description %></td>
-        <td><%= recipe.difficulty %></td>
-        <td><%= recipe.image %></td>
-        <td><%= recipe.preptime %></td>
-        <td><%= recipe.cooktime %></td>
-        <td><%= recipe.ingredients %></td>
-        <td><%= recipe.directions %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= recipe.title %></td>
+        <td><%#= recipe.description %></td>
+        <td><%#= recipe.difficulty %></td>
+        <td><%#= recipe.image %></td>
+        <td><%#= recipe.preptime %></td>
+        <td><%#= recipe.cooktime %></td>
+        <td><%#= recipe.ingredients %></td>
+        <td><%#= recipe.directions %></td>
+        <td><%#= link_to 'Show', recipe %></td>
+        <td><%#= link_to 'Edit', edit_recipe_path(recipe) %></td>
+        <td><%#= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
+      </div>
+    <%# end %>
+      </div>
+    </div>
+  </tbody> -->
 </table>
 
 <br>

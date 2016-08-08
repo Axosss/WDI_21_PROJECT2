@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
+    <%= f.text_field :username %>
   </div>
 
   <div class="field">
@@ -23,6 +23,12 @@
     <%= f.text_field :last_name %>
   </div>
   
+  <div class="field">
+    <%= f.label :description_about_the_chef_you_are %><br />
+    <%= f.text_field :description %>
+  </div>
+
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

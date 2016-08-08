@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 
 
+gem 'carrierwave', '0.10.0'
+gem 'rmagick'
+
+gem 'bootstrap', '~> 4.0.0.alpha3.1'
+    
+source 'https://rails-assets.org' do
+    gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
