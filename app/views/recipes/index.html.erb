@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 
 <h1>Recipes</h1>
 
 
-<!--   <thead>
+   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
@@ -20,21 +20,21 @@
 
 
  -->
-  THIS IS NOT GONNA BE DISPLAYED AT THE VERY END 
+ <!--  THIS IS NOT GONNA BE DISPLAYED AT THE VERY END 
   <div class="row">
-  <% @recipes.each do |recipe| %>
+  <#% @recipes.each do |recipe| %>
     <div class="col-md-6">
       <div class="card">
-        <% if !recipe.recipe_image.blank? %>
-          <%= link_to image_tag(recipe.recipe_image.url), recipe_path(recipe), :class => 'card-img-top' %>
-        <% else %>
+        <#% if !recipe.recipe_image.blank? %>
+          <%#= link_to image_tag(recipe.recipe_image.url), recipe_path(recipe), :class => 'card-img-top' %>
+        <#% else %>
           <img src="http://www.fillmurray.com/300/300" class="recipe-index">
-        <% end %>
+        <#% end %>
       </div>
     </div>
-  <% end %>
+  <#% end %>
 
-<!-- 
+
   <tbody>
   <div class="row">
     <%# @recipes.each do |recipe| %>
@@ -57,9 +57,9 @@
     <%# end %>
       </div>
     </div>
-  </tbody> -->
+  </tbody>
 
 
 <br>
-
+ -->
 <%#= link_to 'New Recipe', new_recipe_path %>

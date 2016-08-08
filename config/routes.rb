@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'comments/update'
 
 #C# Added comments to resources 
-  resources :recipes, :comments
+  resources :recipes ,except: :index #I dont need the index page because all i need from it is in my static one now
+
+  resources :comments
   devise_for :users
   root 'statics#homepage'
 

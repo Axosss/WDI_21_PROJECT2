@@ -18,9 +18,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :username, length: { in: 3..20 }
 
-  #Difficulty 
-  validates :difficulty, :numericality => { :greater_than_or_equal_to => 1, :less_than_or_equal_to => 5 }
-
 
 
   # validates :password, length: { in: 3..20 }

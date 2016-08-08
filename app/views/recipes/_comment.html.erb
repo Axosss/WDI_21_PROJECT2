@@ -1,37 +1,54 @@
-<h3>Reviews</h3>
+<!-- If logged in -->
+<% if !current_user.nil? %>
+
+  <h3>Reviews</h3>
+  <br>
+
+  <!-- If there is no comment yet -->
+  <% if !!@recipe.comments.blank? %>
+    <p> No chef rewied this recipe yet. Be the first to comment </p>
+    <br>
+  <% end %>
+
+  <!-- Displays the comments -->
   <% @recipe.comments.each do |comment| %>
     <div class="comment">
       <h4><%= comment.title %></h4>
       <p><%= comment.content %></p>
       <p><small> Added by <%= comment.user.username %></small> </p>
- <!-- Delete button : if ... is so only the user who made it can delete it  -->
-      <% if @recipe.user_id == current_user.id %>
-      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+
+        <!-- Delete button : if ... is so only the user who made it can delete it  -->
+        <% if @recipe.user_id == current_user.id %>
+        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
     </div>
-  <% end %>
-
-<!-- (comments_new_path) -->
-<h3> Add a review</h3>
-
-<%= form_for(comment) do |f| %>
-
-<fieldset class="form-group">
-  <%= f.label :title %>
-  <%= f.text_field :title, autofocus: true, class:"form-control" %>
-</fieldset>
-
-<fieldset class="form-group">
-  <%= f.label :content %>
-  <%= f.text_area :content, class:"form-control"%>
-</fieldset>
-
-<%= link_to 'Back', recipes_path %>
+   <% end %>
 
 
-<div class="actions">
-  <%= f.submit %>
-</div>
+    <!-- Comments form aka New comment -->
+    <h3> Add a review</h3>
 
+    <%= form_for(comment) do |f| %>
 
+    <fieldset class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true, class:"form-control" %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= f.label :content %>
+      <%= f.text_area :content, class:"form-control"%>
+    </fieldset>
+
+    <%= link_to 'Back', recipes_path %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
+
+<!-- If not logged in  -->
+<% else %>
+Not registered yet ? <br>
+<a href="/users/sign_in"> Register now </a>and interact with our chef community
 <% end %>
