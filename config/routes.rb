@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'comments/update'
 
+#C# Added comments to resources 
   resources :recipes, :comments
   devise_for :users
   root 'statics#homepage'

@@ -13,8 +13,8 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-    # new stuff here
-    @comment=Comment.new
+    #C# Cookies and new
+    @comment= Comment.new
     session[:current_recipe_id] = params[:id]
     #
   end
@@ -61,6 +61,11 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
+    #because a comment is attached to recipe, we need to delete the comments of that recipe when deleting the recipe
+    @recipe.comments.each do |comment|
+      comment.destroy
+    end 
+
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }

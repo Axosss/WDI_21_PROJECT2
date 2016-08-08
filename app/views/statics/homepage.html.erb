@@ -1,6 +1,6 @@
 <h1>Homepage</h1>
 
-<!-- This is not working -->
+<!-- I should render this -->
 <div class="row">
   <% @recipes.each do |recipe| %>
     <div class="col-md-6">
@@ -8,7 +8,7 @@
         <% if !recipe.recipe_image.blank? %>
           <%= link_to image_tag(recipe.recipe_image.url), recipe_path(recipe), :class => 'card-img-top' %>
         <% else %>
-          <img src="http://www.fillmurray.com/300/300" class="recipe-index">
+          <%= link_to image_tag("http://www.fillmurray.com/300/300"), recipe_path(recipe), :class => 'card-img-top' %>
         <% end %>
       </div>
     </div>

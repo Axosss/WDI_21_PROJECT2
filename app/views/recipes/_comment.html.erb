@@ -1,16 +1,19 @@
-<h1>Comments#new</h1>
-
-
-<h1>Comments:</h1>
+<h3>Reviews</h3>
   <% @recipe.comments.each do |comment| %>
     <div class="comment">
-      <h3><%=comment.title %></h3>
-      <p><%=comment.content %></p>
-      <p><small>Added by <%= comment.user.username %></small> </p>
+      <h4><%= comment.title %></h4>
+      <p><%= comment.content %></p>
+      <p><small> Added by <%= comment.user.username %></small> </p>
+ <!-- Delete button : if ... is so only the user who made it can delete it  -->
+      <% if @recipe.user_id == current_user.id %>
+      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
   <% end %>
 
 <!-- (comments_new_path) -->
+<h3> Add a review</h3>
+
 <%= form_for(comment) do |f| %>
 
 <fieldset class="form-group">

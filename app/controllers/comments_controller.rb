@@ -1,18 +1,18 @@
 class CommentsController < ApplicationController
   def new
     @comments = Comment.all
-    # new stuff here
-    # @recipe = Recipe.find(params[:id])
-    #
   end
 
   def create
-    # new stuff here
+    #C# Added after the rest
+    #Cookies
     @recipe = Recipe.find_by_id(session[:current_recipe_id])
     
     @comment = current_user.comments.new(comment_params)
+
     @comment.recipe_id = session[:current_recipe_id]
-    #
+    #C#
+
     respond_to do |format|
       if @comment.save
         #
@@ -26,9 +26,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to Recipe.find_by_id(session[:current_recipe_id]), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
