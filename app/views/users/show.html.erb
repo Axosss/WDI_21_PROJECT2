@@ -2,8 +2,23 @@
 
 <p> Hey Chef <%= @user.username %> !</p>
 <br>
+
+<% case @user.recipes.count %>
+<% when 0..1 %>
+<p> Your rank is beginner </p>
+<% when 2..4 %>
+<p> Your rank is intermediate </p>
+<% when 5..7 %>
+<p> Your rank is pro </p>
+<% end %>
+
+
+<p> Your have : <%= @user.recipes.count %> points <br>
+How does it works ? Each recipe is equal to 1 point.</p>
 <!-- New recipe logo link -->
 <%= link_to image_tag("newrecipelogo.png"), new_recipe_path, title: 'New Recipe' %>
+
+
 
 <!-- Link to all of user recipes -->
 <p>Your recipes<p>
@@ -14,3 +29,4 @@
     </li>
   <% end %>
 </ul>
+
