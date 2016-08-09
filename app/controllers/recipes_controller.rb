@@ -35,8 +35,8 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
+        format.html { redirect_to root_path, notice: 'Recipe was successfully created.' }
+        format.json { render :show, status: :created, location: root_path }
       else
         format.html { render :new }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -49,8 +49,8 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
+        format.html { redirect_to root_path, notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: root_path }
       else
         format.html { render :edit }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ class RecipesController < ApplicationController
 
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -81,6 +81,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description, :difficulty, :image, :preptime, :cooktime, :ingredients, :directions, :user_id, :recipe_image)
+      params.require(:recipe).permit(:title, :description, :difficulty, :image, :preptime, :cooktime, :ingredients, :directions, :user_id, {pictures: []}, :servings)
     end
 end

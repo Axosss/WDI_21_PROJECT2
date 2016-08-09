@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'carrierwave', '0.10.0'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
