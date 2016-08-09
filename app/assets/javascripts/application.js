@@ -22,7 +22,7 @@
 $(document).on("turbolinks:load", function() {
 
   $ingredients = $('input[name=ingredient]');
-  $hiddenField = $('input[name="recipe[ingredients]"]');
+  $ingredientHiddenField = $('input[name="recipe[ingredients]"]');
 
   if($ingredients.length > 0) {
     // on blur of that input
@@ -35,7 +35,7 @@ $(document).on("turbolinks:load", function() {
         // join them into one string with commas
       }, []).join(',');
       // put the data into the hidden field
-      $hiddenField.val(str);
+      $ingredientHiddenField.val(str);
 
     });
 
@@ -51,38 +51,33 @@ $(document).on("turbolinks:load", function() {
     });
   }
 
+  $directions = $('input[name=direction]');
+  $directionsHiddenField = $('input[name="recipe[directions]"]');
+
+  if($directions.length > 0) {
+
+    $directions.on('blur', function() {
+
+      var str = $('input[name=direction]').toArray().reduce(function(prev,current) {
+        var $input = $(current);
+        if($input.val()) prev.push($input.val());
+        return prev;
+      }, []).join(',');
+
+      $directionsHiddenField.val(str);
+
+    });
+
+    var $last = $directions.last();
+
+    $last.on('keyup', function() {
+      if($(this).val()) {
+        $clone = $(this).clone(true);
+        $clone.val('');
+        $clone.appendTo($directions.parent());
+        $(this).off('keyup');
+      }
+    });
+  }
+
 });
-
-//Direction form add-on 
-  // $(document).on("turbolinks:load", function() {
-
-  //   $ingredients = $('input[name=direction]');
-  //   $hiddenField = $('input[name="recipe[directions]"]');
-
-  //   if($directions.length > 0) {
-
-  //     $directions.on('blur', function() {
-
-  //       var str = $('input[name=direction]').toArray().reduce(function(prev,current) {
-  //         var $input = $(current);
-  //         if($input.val()) prev.push($input.val());
-  //         return prev;
-  //       }, []).join(',');
-
-  //       $hiddenField.val(str);
-
-  //     });
-
-  //     var $last = $directions.last();
-
-  //     $last.on('keyup', function() {
-  //       if($(this).val()) {
-  //         $clone = $(this).clone(true);
-  //         $clone.val('');
-  //         $clone.appendTo($directions.parent());
-  //         $(this).off('keyup');
-  //       }
-  //     });
-  //   }
-
-  // });

@@ -8,13 +8,14 @@ class Recipe < ApplicationRecord
   has_many :comments
 
   #Difficulty 
-  validates :difficulty, inclusion: { in: [1,5] }
+  validates_inclusion_of :difficulty, in: 1..5
+  validates_presence_of :title
 
   def ingredient_list
-    self.ingredients.split(',')
+    return self.ingredients.nil? ? [] : self.ingredients.split(',')
   end
 
-  # def direction_list
-  #   self.ingredients.split(',')
-  # end
+  def direction_list
+    return self.directions.nil? ? [] : self.directions.split(',')
+  end
 end

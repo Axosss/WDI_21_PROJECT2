@@ -31,7 +31,7 @@
     <%= f.text_field :servings, class: "form-control" %> person(s)
   </fieldset>
 
-<fieldset class="form-group">
+  <fieldset class="form-group">
    <%= f.label :pictures %>
    <%= f.file_field :pictures, multiple: true, class:"form-control", accept: "image/jpeg, image/jpg, image/gif, image/png" %>
   </fieldset> 
@@ -58,25 +58,25 @@
     <%= f.label :ingredients %>
     <%= f.hidden_field :ingredients, value: recipe.ingredients %>
 
-    <%# recipe.ingredient_list.each do |i| %>
-<!--       <input type="text" name="ingredient" value="<%#= i %>" class="form-control" placeholder="Add an ingredient">
-    <%# end %> -->
+    <% recipe.ingredient_list.each do |ingredient| %>
+      <input type="text" name="ingredient" value="<%= ingredient %>" class="form-control" placeholder="Add an ingredient">
+    <% end %>
 
     <input type="text" name="ingredient" class="form-control" placeholder="Add an ingredient">
   </fieldset>
 
 
-  <!-- <fieldset>
-    <%#= f.label :directions %>
-    <%#= f.hidden_field :directions, value: recipe.directions %>
+  <fieldset>
+    <%= f.label :directions %>
+    <%= f.hidden_field :directions, value: recipe.directions %>
 
-    <%# recipe.direction_list.each do |i| %>
-      <input type="text" name="direction" value="<%#= i %>" class="form-control" placeholder="Add a direction">
-    <%# end %>
+    <% recipe.direction_list.each do |direction| %>
+      <input type="text" name="direction" value="<%= direction %>" class="form-control" placeholder="Add a direction">
+    <% end %>
 
     <input type="text" name="direction" class="form-control" placeholder="Add a direction">
   </fieldset>
- -->
+
 
   <fieldset>
     <%= f.label :directions %>
