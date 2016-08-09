@@ -5,8 +5,8 @@
   <% @recipes.each do |recipe| %>
     <div class="col-md-6">
       <div class="card">
-        <% if !recipe.recipe_image.blank? %>
-          <%= link_to image_tag(recipe.recipe_image.url), recipe_path(recipe), :class => 'card-img-top' %>
+        <% if !recipe.pictures.blank? %>
+          <%= link_to image_tag(recipe.pictures.url), recipe_path(recipe), :class => 'card-img-top' %>
         <% else %>
           <%= link_to image_tag("/items/nopicture.png"), recipe_path(recipe), :class => 'card-img-top' %>
         <% end %>
