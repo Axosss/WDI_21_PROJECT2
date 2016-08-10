@@ -1,32 +1,56 @@
-<h1>Users Show</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <h1>Users Show</h1>
 
-<p> Hey Chef <%= @user.username %> !</p>
-<br>
+        <p> Hey Chef <%= @user.username %> !</p>
+        <br>
 
-<% case @user.recipes.count %>
-<% when 0..1 %>
-<p> Your rank is beginner </p>
-<% when 2..4 %>
-<p> Your rank is intermediate </p>
-<% when 5..7 %>
-<p> Your rank is pro </p>
-<% end %>
-
-
-<p> Your have : <%= @user.recipes.count %> points <br>
-How does it works ? Each recipe is equal to 1 point.</p>
-<!-- New recipe logo link -->
-<%= link_to image_tag("newrecipelogo.png"), new_recipe_path, title: 'New Recipe' %>
+        <% case @user.recipes.count %>
+        <% when 0 %>
+        <p> Your rank is beginner <%= link_to image_tag(("/items/logos_template/rank1.png"))%></p>
+        <% when 1..2 %>
+        <p> Your rank is intermediate <%= link_to image_tag(("/items/logos_template/rank2.png"))%></p>
+        <% when 3..4 %>
+        <p> Your rank is pro <%= link_to image_tag(("/items/logos_template/rank3.png"))%></p>
+        <% when 5..6 %>
+        <p> Your rank is pro <%= link_to image_tag(("/items/logos_template/rank4.png"))%></p>
+        <% when 7..100 %>
+        <p> Your rank is pro <%= link_to image_tag(("/items/logos_template/rank5.png"))%></p>
+        <% end %>
 
 
+        <p> Your have : <%= @user.recipes.count %> points <br>
+        How does it works ? 
+        <br>
+        Each recipe is equal to 1 point.</p>
+        Post more recipes to upgrade your logo and show off.
+        <!-- New recipe logo link -->
+        <br>
+        <%= link_to image_tag("newrecipelogo.png"), new_recipe_path, title: 'New Recipe' %>
 
-<!-- Link to all of user recipes -->
-<p>Your recipes<p>
-<ul>
-  <% @user.recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.title, recipe_path(recipe) %>
-    </li>
-  <% end %>
-</ul>
+    
 
+    <!-- Link to all of user recipes -->
+
+
+
+        <% @user.recipes.each do |recipe| %>
+          <div class="col-md-6">
+            <div class="card card-inverse">
+            <% if !recipe.pictures.first.blank? %>
+              <%= link_to image_tag(recipe.pictures.first.cardsize.url), recipe_path(recipe), :class => 'card-img' %>
+            <% else %>
+              <%= link_to image_tag("/items/nopicture.png"), recipe_path(recipe), :class => 'card-img' %>
+            <% end %>
+              <div class="card-img-overlay">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div> 
+          <% end %>    
+        </div>
+    </div>
+  </div>
+</div>

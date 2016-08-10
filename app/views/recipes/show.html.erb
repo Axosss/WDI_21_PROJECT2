@@ -1,64 +1,116 @@
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
 
-<p>
-<strong>by </strong>
-  <%= @recipe.user.username %>
-</p>
 
-<% @recipe.pictures.each do |picture| %>
-<p>
-  <%= image_tag picture %>
-</p>
-<% end %>
+      <p>
+        <strong>Title:</strong>
+        <%= @recipe.title %>
+      </p>
 
-<p>
-  <strong>Difficulty:</strong>
-  <%= @recipe.difficulty %>
-</p>
+      <p>
+        <strong>by </strong>
+        <%= link_to @recipe.user.username, user_path(@recipe.user) %>
+      </p>
 
-<p>
-  <strong>Servings:</strong>
-  <%= @recipe.servings %>
-</p>
 
-<p>
-  <strong>Preptime:</strong>
-  <%= @recipe.preptime %>
-</p>
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <%= image_tag @recipe.pictures.first.sixhundredf, class:"crop" %>
+          </div>
+          <% @recipe.pictures.drop(1).each do |picture| %>
+          <div class="carousel-item">
+            <%= image_tag picture.sixhundredf %>
+          </div>
+          <% end %>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="icon-prev" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="icon-next" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
 
-<p>
-  <strong>Cooktime:</strong>
-  <%= @recipe.cooktime %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
 
-<p>
-  <strong>Ingredients:</strong>
-  <ul class="list-group">
-    <% @recipe.ingredient_list.each do |ingredient| %>
-      <li class="list-group-item"><%= ingredient %></li>
-    <% end %>
-  </ul>
-</p>
 
-<p>
-  <strong>Directions:</strong>
-  <%= @recipe.directions %>
-</p>
 
-<!-- #C# Rendering the comment form -->
-  <%= render "comment", comment: @comment %>
-<!-- #C# -->
 
-<!-- Restrictions : When not the user id on the recipe, can't do these -->
-<% if !current_user.nil? && @recipe.user_id == current_user.id %>
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %> 
+
+
+
+
+
+
+
+
+
+
+
+      <p>
+        <strong>Difficulty:</strong>
+        <%= @recipe.difficulty %>
+      </p>
+
+      <p>
+        <strong>Servings:</strong>
+        <%= @recipe.servings %>
+      </p>
+
+      <p>
+        <strong>Preptime:</strong>
+        <%= @recipe.preptime %>
+      </p>
+
+      <p>
+        <strong>Cooktime:</strong>
+        <%= @recipe.cooktime %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @recipe.description %>
+      </p>
+    
+
+      <p>
+        <strong>Ingredients:</strong>
+        <ul class="list-group">
+          <% @recipe.ingredient_list.each do |ingredient| %>
+            <li class="list-group-item"><%= ingredient %></li>
+          <% end %>
+        </ul>
+      </p>
+
+      <p>
+        <strong>Directions:</strong>
+        <ul class="list-group">
+          <% @recipe.direction_list.each do |direction| %>
+            <li class="list-group-item"><%= direction %></li>
+          <% end %>
+        </ul>
+      </p>
+
+
+      <!-- #C# Rendering the comment form -->
+        <%= render "comment", comment: @comment %>
+      <!-- #C# -->
+
+      <!-- Restrictions : When not the user id on the recipe, can't do these -->
+      <% if !current_user.nil? && @recipe.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+      <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %> 
+
+    </div>
+  </div>
+</div>

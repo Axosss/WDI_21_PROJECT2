@@ -36,6 +36,36 @@ class RecipeImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [300, 300]
   end
 
+  version :showimage do
+    process :resize_to_fit => [100, 300]
+  end
+
+  version :fourhundred do
+    process :resize_to_fit => [400, 400]
+  end
+
+  version :sixhundred do
+    process :resize_to_fit => [600, 600]
+  end
+
+  version :cardsizef do
+    process :resize_to_fill => [300, 300]
+  end
+
+  version :showimagef do
+    process :resize_to_fill => [100, 300]
+  end
+
+  version :fourhundredf do
+    process :resize_to_fill => [400, 400]
+  end
+
+  version :sixhundredf do
+    process :resize_to_fill => [600, 600]
+  end
+
+
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

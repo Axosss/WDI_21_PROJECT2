@@ -49,8 +49,8 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to root_path, notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: root_path }
+        format.html { redirect_to recipe_path, notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: recipe_path }
       else
         format.html { render :edit }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
