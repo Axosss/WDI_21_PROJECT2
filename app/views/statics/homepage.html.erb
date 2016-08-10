@@ -1,16 +1,21 @@
 <h1>Homepage</h1>
 <div class="container-fluid">
   <div class="row">
-    <% @recipes.each do |recipe| %>
+
+  <% @recipes.each do |recipe| %>
+   <%= link_to recipe_path(recipe), class:'card-img' do %>
       <div class="col-md-6">
-        <div class="card">
-          <% if !recipe.pictures.blank? %>
-            <%= link_to image_tag(recipe.pictures.first.fourhundredf), recipe_path(recipe), :class => 'card-img-top' %>
-          <% else %>
-            <%= link_to image_tag("/items/nopicture.png"), recipe_path(recipe), :class => 'card-img-top' %>
-          <% end %>
-        </div>
+        <div class="card card-inverse">
+         <%= image_tag recipe.pictures.first.fourhundredf, class: "card-img" %>
+          <div class="card-img-overlay">
+            <h4 class="card-title" id="pacifico"><%= recipe.title %></h4>
+            <p class="card-text"><%= recipe.description %></p>
+            <p class="card-text"><small class="text-muted"></small></p>
+          </div>
+        </div>   
       </div>
     <% end %>
+  <% end %>  
+
   </div>
 </div>

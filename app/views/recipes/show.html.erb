@@ -1,16 +1,25 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-
-
-      <p>
-        <strong>Title:</strong>
+      <h1 id="pacifico">
         <%= @recipe.title %>
-      </p>
+      </h1>
 
       <p>
         <strong>by </strong>
         <%= link_to @recipe.user.username, user_path(@recipe.user) %>
+        <% case @recipes.count %>
+          <% when 0 %>
+           <%= image_tag(("/items/logos_template/rank1.png"))%>
+          <% when 1..2 %>
+            <%= image_tag(("/items/logos_template/rank2.png"))%>
+          <% when 3..4 %>
+            <%= image_tag(("/items/logos_template/rank3.png"))%>
+          <% when 5..6 %>
+            <%= image_tag(("/items/logos_template/rank4.png"))%>
+          <% when 7..100 %>
+            <%= image_tag(("/items/logos_template/rank5.png"))%>
+        <% end %>
       </p>
 
 
@@ -20,16 +29,18 @@
           <li data-target="#carousel-example-generic" data-slide-to="1"></li>
           <li data-target="#carousel-example-generic" data-slide-to="2"></li>
         </ol>
+
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
             <%= image_tag @recipe.pictures.first.sixhundredf, class:"crop" %>
           </div>
           <% @recipe.pictures.drop(1).each do |picture| %>
-          <div class="carousel-item">
-            <%= image_tag picture.sixhundredf %>
-          </div>
+            <div class="carousel-item">
+              <%= image_tag picture.sixhundredf %>
+            </div>
           <% end %>
         </div>
+
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
           <span class="icon-prev" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -41,49 +52,54 @@
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <p>
         <strong>Difficulty:</strong>
         <%= @recipe.difficulty %>
       </p>
+      
+    </div>
+  </div>
+<hr>
+  <div class="row">
+    <div class="col-md-7">
 
-      <p>
-        <strong>Servings:</strong>
-        <%= @recipe.servings %>
+      <p id="primary_color">
+        <strong>Total time</strong> <br>
+        <span id="recipe_time"><%= @recipe.preptime+@recipe.cooktime %></span> minutes
       </p>
+    </div>
+
+
+
+    <div class="col-md-5">
+        <p id="primary_color">
+          <strong>Preptime:</strong>
+          <span id="min"> <%= @recipe.preptime %> mins</span>
+        </p>
+
+        <p id="primary_color">
+          <strong>Cooktime:</strong>
+          <span id="min"><%= @recipe.cooktime %> mins</span>
+        </p>
+
+        <p>
+          <strong id="primary_color">Servings:</strong>
+           <%= @recipe.servings %> 
+        </p>
+    </div>
+  </div>
+<hr>
+  <div class="row">
+    <div class="col-md-12">
 
       <p>
-        <strong>Preptime:</strong>
-        <%= @recipe.preptime %>
-      </p>
-
-      <p>
-        <strong>Cooktime:</strong>
-        <%= @recipe.cooktime %>
-      </p>
-
-      <p>
-        <strong>Description:</strong>
+        <h3><%= image_tag("/items/logos_template/fork.png") %><u>Description:</u><%= image_tag("/items/logos_template/knife.png") %></h3>
         <%= @recipe.description %>
       </p>
     
 
       <p>
-        <strong>Ingredients:</strong>
+        <h3><u>Ingredients:</u></h3>
         <ul class="list-group">
           <% @recipe.ingredient_list.each do |ingredient| %>
             <li class="list-group-item"><%= ingredient %></li>
@@ -92,7 +108,7 @@
       </p>
 
       <p>
-        <strong>Directions:</strong>
+        <h3><u>Directions:</u></h3>
         <ul class="list-group">
           <% @recipe.direction_list.each do |direction| %>
             <li class="list-group-item"><%= direction %></li>
@@ -110,6 +126,7 @@
       <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
       <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %> 
+
 
     </div>
   </div>

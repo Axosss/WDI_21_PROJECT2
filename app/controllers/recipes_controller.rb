@@ -16,6 +16,9 @@ class RecipesController < ApplicationController
     #C# Cookies and new
     @comment= Comment.new
     session[:current_recipe_id] = params[:id]
+    # @user = User.find(params[:id])
+    # @user = User.all
+    @recipes = Recipe.all
     #
   end
 
