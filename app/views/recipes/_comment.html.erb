@@ -1,56 +1,64 @@
 <!-- If logged in -->
-<% if !current_user.nil? %>
 
+<% if !current_user.nil? %>
+<br>
+<br>
   <h3><u>Chefs reviews:</u></h3>
   <br>
 
   <!-- If there is no comment yet -->
+
   <% if !!@recipe.comments.blank? %>
     <p> No chef rewied this recipe yet. Be the first to comment </p>
     <br>
   <% end %>
 
   <!-- Displays the comments -->
-  <% @recipe.comments.each do |comment| %>
-    <div class="comment">
-      <h5 class="pacifico" align="left"><%= link_to comment.user.username, user_path(comment.user) %>
-        <% case comment.user.recipes.count %>
-          <% when 0 %>
-           <%= image_tag(("/items/logos_template/rank1.png"))%>
-          <% when 1..2 %>
-            <%= image_tag(("/items/logos_template/rank2.png"))%>
-          <% when 3..4 %>
-            <%= image_tag(("/items/logos_template/rank3.png"))%>
-          <% when 5..6 %>
-            <%= image_tag(("/items/logos_template/rank4.png"))%>
-          <% when 7..100 %>
-            <%= image_tag(("/items/logos_template/rank5.png"))%>
-          <% end %>
-      </h5>
-      <h4 align="left"><%= comment.title %></h4>
-      <p align="left"><%= comment.content %></p>
-      
-      <!-- Delete button : if ... is here so only the user who made it can delete it  -->
-      <% if @recipe.user_id == current_user.id %>
-      <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </div>
-   <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <% @recipe.comments.each do |comment| %>
+        
+        <div class="comment">
+          <h5 class="pacifico" align="left"><%= link_to comment.user.username, user_path(comment.user) %>
+            <% case comment.user.recipes.count %>
+              <% when 0 %>
+               <%= image_tag(("/items/logos_template/rank1.png"))%>
+              <% when 1..2 %>
+                <%= image_tag(("/items/logos_template/rank2.png"))%>
+              <% when 3..4 %>
+                <%= image_tag(("/items/logos_template/rank3.png"))%>
+              <% when 5..6 %>
+                <%= image_tag(("/items/logos_template/rank4.png"))%>
+              <% when 7..100 %>
+                <%= image_tag(("/items/logos_template/rank5.png"))%>
+              <% end %>
+          </h5>
+          <h4 align="left"><%= comment.title %></h4>
+          <p align="left"><%= comment.content %></p>
 
+          <!-- Delete button : if ... is here so only the user who made it can delete it  -->
+          <% if @recipe.user_id == current_user.id %>
+          <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+      <% end %>
+     </div>
+   </div>
 
     <!-- Comments form aka New comment -->
-    <h3> Add a review</h3>
+    <br>
+    <h3><u> Add a review </u></h3>
 
     <%= form_for(comment) do |f| %>
 
     <fieldset class="form-group">
       <%= f.label :title %>
-      <%= f.text_field :title, class:"form-control" %>
+      <%= f.text_field :title, class:"form-control", placeholder: "Title of the review" %>
     </fieldset>
 
     <fieldset class="form-group">
       <%= f.label :content %>
-      <%= f.text_area :content, class:"form-control"%>
+      <%= f.text_area :content, class:"form-control", placeholder: "Improvement suggestions, or what you thought of this recipe"%>
     </fieldset>
 
   

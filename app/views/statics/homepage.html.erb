@@ -1,15 +1,31 @@
-<h1>Homepage</h1>
+<br>
+<br>
 <div class="container-fluid">
   <div class="row">
 
   <% @recipes.each do |recipe| %>
    <%= link_to recipe_path(recipe), class:'card-img' do %>
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="card card-inverse">
-         <%= image_tag recipe.pictures.first.fourhundredf, class: "card-img" %>
+         <%= image_tag recipe.pictures.first.fourhundredf, class: "card-img mainpage" %>
           <div class="card-img-overlay">
-            <h4 class="card-title" id="pacifico"><%= recipe.title %></h4>
+
+            <h4 class="card-title mainpage" id="pacifico"><%= recipe.title %></h4>
             <p class="card-text"><%= recipe.description %></p>
+            <p class="difficulty_in_img">
+              <% case recipe.difficulty %>
+              <% when 0 %>
+               <%= image_tag(("/items/logos_template/difficulty1.png"))%>
+              <% when 1..2 %>
+                <%= image_tag(("/items/logos_template/difficulty2.png"))%>
+              <% when 3..4 %>
+                <%= image_tag(("/items/logos_template/difficulty3.png"))%>
+              <% when 5..6 %>
+                <%= image_tag(("/items/logos_template/difficulty4.png"))%>
+              <% when 7..100 %>
+                <%= image_tag(("/items/logos_template/difficulty5.png"))%>
+            <% end %>
+            </p>
             <p class="card-text"><small class="text-muted"></small></p>
           </div>
         </div>   

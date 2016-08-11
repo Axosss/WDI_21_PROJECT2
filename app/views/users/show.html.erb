@@ -19,15 +19,15 @@
     <strong>Rank is :</strong>
     <% case @user.recipes.count %>
     <% when 0 %>
-    <p>Beginner <%= link_to image_tag(("/items/logos_template/rank1.png"))%></p>
+    <p>Beginner <%= image_tag(("/items/logos_template/rank1.png"))%></p>
     <% when 1..2 %>
-    <p>Kitchen commi <%= link_to image_tag(("/items/logos_template/rank2.png"))%></p>
+    <p>Kitchen commi <%= image_tag(("/items/logos_template/rank2.png"))%></p>
     <% when 3..4 %>
-    <p>Chef  <%= link_to image_tag(("/items/logos_template/rank3.png"))%></p>
+    <p>Chef  <%= image_tag(("/items/logos_template/rank3.png"))%></p>
     <% when 5..6 %>
-    <p>Master <%= link_to image_tag(("/items/logos_template/rank4.png"))%></p>
+    <p>Master <%= image_tag(("/items/logos_template/rank4.png"))%></p>
     <% when 7..100 %>
-    <p>Gordon Ramsay <%= link_to image_tag(("/items/logos_template/rank5.png"))%></p>
+    <p>Gordon Ramsay <%= image_tag(("/items/logos_template/rank5.png"))%></p>
     <% end %>
 
     <% if current_user == @user %>
@@ -39,7 +39,9 @@
         Post more recipes to upgrade your logo and show off.
         <!-- New recipe logo link -->
         <br>
-        <%= link_to image_tag("newrecipelogo.png"), new_recipe_path, title: 'New Recipe' %>
+
+          <%= link_to image_tag("newrecipelogo.png"), new_recipe_path, title: 'New Recipe' %>
+
         <br>
 
     <% end %>
@@ -51,16 +53,14 @@
 
 
     <!-- Link to all of user recipes -->
-     <h1 class="pacifico"> <%= @user.username %> recipes </h1>
+     <h1 class="pacifico"> Chef recipes </h1>
      <hr>
-        <% @user.recipes.each do |recipe| %>
+    
+      <% @user.recipes.each do |recipe| %>
+       <%= link_to recipe_path(recipe), class:'card-img' do %>
           <div class="col-md-6">
             <div class="card card-inverse">
-            <% if !recipe.pictures.first.blank? %>
-              <%= link_to image_tag(recipe.pictures.first.fourhundredf), recipe_path(recipe), :class => 'card-img' %>
-            <% else %>
-              <%= link_to image_tag("/items/nopicture.png"), recipe_path(recipe), :class => 'card-img' %>
-            <% end %>
+             <%= image_tag recipe.pictures.first.fourhundredf, class: "card-img" %>
               <div class="card-img-overlay">
                 <h4 class="card-title" id="pacifico"><%= recipe.title %></h4>
                 <p class="card-text"><%= recipe.description %></p>
@@ -68,7 +68,8 @@
               </div>
             </div>   
           </div>
-        <% end %>  
+        <% end %>
+      <% end %>  
     </div>
   </div>
 </div>

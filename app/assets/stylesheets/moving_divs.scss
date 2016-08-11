@@ -1,0 +1,140 @@
+#container_moving_div {
+  position: absolute;
+  left: 50%;
+  top: -50px;
+}
+
+.moving_div  {
+  max-height: 50px;
+  max-width: 50px;
+  /*border: 2px solid black;*/
+  display: inline;
+  position: absolute;
+  left: -50%
+}
+
+#l1 {
+   -webkit-animation-name: i1; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 6s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+   
+}
+@-webkit-keyframes i1 {
+    0%   {left:-150px; top:150px; opacity:0;}
+    100% {left:-100px; top:000px; opacity:0,4;}
+}
+#l2 {
+   -webkit-animation-name: i2; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes i2 {
+    0%   {left: 0px; top:150px; opacity:0}
+    100% {left:-20px; top:000px; opacity:0,4}
+}
+#l3 {
+   -webkit-animation-name: i3; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes i3 {
+    0%   {left:-200px; top:150px; opacity:0}
+    100% {left:-130px;  top:000px; opacity:0,4}
+}
+#l4 {
+   -webkit-animation-name: i4; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes i4 {
+    0%   {left:-150px; top:150px; opacity:0}
+    100% {left:-60px; top:000px;  opacity:0,3}
+}
+#l5 {
+   -webkit-animation-name: i4; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 6s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes i4 {
+    0%   {left:-100px; top:100px; opacity:0}
+    100% {left:-60px; top:000px;  opacity:0,2}
+}
+/*MIDDLE MOVING*/
+#m6 {
+   -webkit-animation-name: i6; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes i6 {
+    0%   {left:0px; top:100px; opacity:0}
+    100% {left:0px; top:000px; opacity:0,6}
+}
+/*RIGHT SIDE MOVING*/
+#r1 {
+   -webkit-animation-name: r1; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+   
+}
+@-webkit-keyframes r1 {
+    0%   {left:50px; top:150px; opacity:0}
+    100% {left:60px; top:000px; opacity:0,4}
+}
+#r2 {
+   -webkit-animation-name: r2; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes r2 {
+    0%   {left:70px; top:150px;  opacity:0}
+    100% {left:70px; top:000px;opacity:0,2}
+}
+#r3 {
+   -webkit-animation-name: r3; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes r3 {
+    0%   {left:200px; top:150px; opacity:0}
+    100% {left:140px; top:000px; opacity:1}
+}
+#r4 {
+   -webkit-animation-name: r4; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 6s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes r4 {
+    0%   {left:150px; top:150px; opacity:0}
+    100% {left:110px; top:000px; opacity:0,2}
+}
+#r5 {
+   -webkit-animation-name: r5; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+   -webkit-animation-direction: reverse; /* Chrome, Safari, Opera */  
+}
+@-webkit-keyframes r5 {
+    0%   {left:100px; top:100px; opacity:0}
+    100% {left:60px; top:000px; opacity:0,4}
+}

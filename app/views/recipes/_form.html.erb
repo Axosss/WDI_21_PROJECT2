@@ -12,57 +12,53 @@
   <% end %>
 
   <fieldset class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", autofocus: true %>
+
+    <%= f.text_field :title, placeholder: "Recipe Title", class: "form-control new_recipe", autofocus: true %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control" %>
+
+    <%= f.text_area :description, placeholder: "Quick description of your chef-d'oeuvre", class: "form-control new_recipe" %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :difficulty %>
-    <%= f.number_field :difficulty, class: "form-control" %> From 1-5
+
+    <%= f.number_field :difficulty, placeholder: "Difficulty", class: "form-control new_recipe" %> From 1-5
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :servings %>
-    <%= f.text_field :servings, class: "form-control" %> person(s)
+    <%= f.number_field :servings, placeholder: "Servings", class: "form-control new_recipe" %> person(s)
   </fieldset>
 
   <fieldset class="form-group">
-   <%= f.label :pictures %>
-   <%= f.file_field :pictures, multiple: true, class:"form-control", accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+   <%= f.file_field :pictures, multiple: true, class:"form-control new_recipe", accept: "image/jpeg, image/jpg, image/gif, image/png" %>
   </fieldset> 
 
 <!-- 
   <fieldset class="form-group">
     <%#= f.label :image %>
-    <%#= f.file_field :recipe_image, class: "form-control" %>
+    <%#= f.file_field :recipe_image, class: "form-control new_recipe" %>
   </fieldset>
  -->
 
 
   <fieldset class="form-group">
-    <%= f.label :preptime %>
-    <%= f.number_field :preptime, class: "form-control" %>
+    <%= f.number_field :preptime, placeholder: "Preptime", class: "form-control new_recipe" %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :cooktime %>
-    <%= f.number_field :cooktime, class: "form-control" %>
+    <%= f.number_field :cooktime, placeholder: "Cooktime", class: "form-control new_recipe" %>
   </fieldset>
 
   <fieldset>
     <%= f.label :ingredients %>
-    <%= f.hidden_field :ingredients, value: recipe.ingredients %>
+    <%= f.hidden_field :ingredients, value: recipe.ingredients  %>
 
     <% recipe.ingredient_list.each do |ingredient| %>
-      <input type="text" name="ingredient" value="<%= ingredient %>" class="form-control" placeholder="Add an ingredient">
+      <input type="text" name="ingredient" value="<%= ingredient %>" class="form-control new_recipe" placeholder="Add an ingredient">
     <% end %>
 
-    <input type="text" name="ingredient" class="form-control" placeholder="Add an ingredient">
+    <input type="text" name="ingredient" class="form-control new_recipe" placeholder="Add an ingredient">
   </fieldset>
 
 
@@ -71,12 +67,13 @@
     <%= f.hidden_field :directions, value: recipe.directions %>
 
     <% recipe.direction_list.each do |direction| %>
-      <input type="text" name="direction" value="<%= direction %>" class="form-control" placeholder="Add a direction">
+      <input type="text" name="direction" value="<%= direction %>" class="form-control new_recipe" placeholder="Add a direction">
     <% end %>
 
-    <input type="text" name="direction" class="form-control" placeholder="Add a direction">
+    <input type="text" name="direction" class="form-control new_recipe" placeholder="Add a direction">
   </fieldset>
 
+<br>
 
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

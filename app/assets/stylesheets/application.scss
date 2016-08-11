@@ -30,3 +30,54 @@ body {
 .pacifico {
   font-family: 'Pacifico', cursive;
 }
+
+input, textarea {
+   text-align:center;
+}
+
+img {
+  pointer-events: none;
+}
+
+.card-img.mainpage {
+  width: 550px;
+}
+
+// p.card-text{ 
+//   font-size: 1.25rem;
+// }
+
+h4.card-title.homepage {
+  font-size: 2.5rem;
+}
+
+.list-group-item { 
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-control {
+  max-width: 700px;
+  margin: 0 auto;
+  }
+
+  .form-control.new_recipe{
+     max-width: 400px;
+     margin: 0 auto;
+   }
+
+
+ .form-control.sign_up{
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .form-control.edit{
+     max-width: 400px;
+     margin: 0 auto;
+   }
+
+   .form-control.log_in{
+      max-width: 400px;
+      margin: 0 auto;
+    }

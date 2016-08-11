@@ -3,11 +3,14 @@
     &#9776;
   </button>
   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-    <a class="navbar-brand" href="/" id="pacifico">What's cooking</a>
+    <a class="navbar-brand" href="/" id="pacifico"><span><%= image_tag("/items/nav_bar/logo_cutlery.png") %></span> What's cooking</a>
     <ul class="nav navbar-nav">
       <% if current_user %>
         <li class="nav-item">
           <%= link_to current_user.username, user_path(current_user), class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to image_tag("/items/nav_bar/logo_cutlery.png"), new_recipe_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link"  %>

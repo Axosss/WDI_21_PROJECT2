@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'possessive'
 
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'rmagick'
