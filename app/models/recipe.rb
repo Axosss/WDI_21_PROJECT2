@@ -8,9 +8,6 @@ class Recipe < ApplicationRecord
   has_many :comments
 
   #Difficulty 
-  
-
-
   validates_inclusion_of :difficulty, in: 1..5
 
   validates_inclusion_of :servings, in: 1..20
@@ -32,5 +29,20 @@ class Recipe < ApplicationRecord
 
   def direction_list
     return self.directions.nil? ? [] : self.directions.split(',')
+  end
+
+  def difficulty_image
+    case difficulty
+      when 1
+        "/items/logos_template/difficulty1.png"
+      when 2
+         "/items/logos_template/difficulty2.png"
+      when 3
+         "/items/logos_template/difficulty3.png"
+      when 4
+         "/items/logos_template/difficulty4.png"
+      when 5
+         "/items/logos_template/difficulty5.png"
+    end
   end
 end

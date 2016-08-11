@@ -20,18 +20,9 @@
         <hr>
         <div class="comment">
           <h5 class="pacifico" align="left"><%= link_to comment.user.username, user_path(comment.user) %>
-            <% case comment.user.recipes.count %>
-              <% when 0 %>
-               <%= image_tag(("/items/logos_template/rank1.png"))%>
-              <% when 1..2 %>
-                <%= image_tag(("/items/logos_template/rank2.png"))%>
-              <% when 3..4 %>
-                <%= image_tag(("/items/logos_template/rank3.png"))%>
-              <% when 5..6 %>
-                <%= image_tag(("/items/logos_template/rank4.png"))%>
-              <% when 7..100 %>
-                <%= image_tag(("/items/logos_template/rank5.png"))%>
-              <% end %>
+         
+                <%= image_tag(comment.user.rank_image)%>
+
           </h5>
           <h4 align="left"><%= comment.title %></h4>
           <p align="left"><%= comment.content %> <% if @recipe.user_id == current_user.id %>

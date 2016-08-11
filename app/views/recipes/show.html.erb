@@ -1,4 +1,4 @@
-<%= render "moving_div" %>
+<br>
 
 <div class="container-fluid">
   <div class="row">
@@ -10,18 +10,7 @@
       <p>
         <strong>by </strong>
         <%= link_to @recipe.user.username, user_path(@recipe.user) %>
-        <% case @recipes.count %>
-          <% when 0 %>
-           <%= image_tag(("/items/logos_template/rank1.png"))%>
-          <% when 1..2 %>
-            <%= image_tag(("/items/logos_template/rank2.png"))%>
-          <% when 3..4 %>
-            <%= image_tag(("/items/logos_template/rank3.png"))%>
-          <% when 5..6 %>
-            <%= image_tag(("/items/logos_template/rank4.png"))%>
-          <% when 7..100 %>
-            <%= image_tag(("/items/logos_template/rank5.png"))%>
-        <% end %>
+        <%= image_tag(@recipe.user.rank_image)%>
       </p>
       <p>
         <h3><%= image_tag("/items/logos_template/fork.png") %><u>Description:</u><%= image_tag("/items/logos_template/knife.png") %></h3>
@@ -37,12 +26,7 @@
 
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
-
-
           <% if @recipe.pictures.present? %>
-            
-         
-
             <%= image_tag @recipe.pictures.first.sixhundredf, class:"crop" %>
           </div>
           <% @recipe.pictures.drop(1).each do |picture| %>
@@ -69,18 +53,7 @@
       <p>
         <strong>Difficulty:</strong>
         <br>
-        <% case @recipe.difficulty %>
-          <% when 1 %>
-           <%= image_tag("/items/logos_template/difficulty1.png")%>
-          <% when 2 %>
-            <%= image_tag("/items/logos_template/difficulty2.png")%>
-          <% when 3 %>
-            <%= image_tag("/items/logos_template/difficulty3.png")%>
-          <% when 4 %>
-            <%= image_tag("/items/logos_template/difficulty4.png")%>
-          <% when 5 %>
-            <%= image_tag("/items/logos_template/difficulty5.png")%>
-          <% end %>
+        <%= image_tag(@recipe.difficulty_image)%>
       </p>
       <hr>
     </div>
@@ -117,10 +90,6 @@
 <hr>
   <div class="row">
     <div class="col-md-12">
-
-      
-    
-
       <p>
         <h3><u>Ingredients:</u></h3>
         <ul class="list-group">
@@ -143,7 +112,6 @@
       <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
       <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %> 
-
 
       <!-- #C# Rendering the comment form -->
         <%= render "comment", comment: @comment %>

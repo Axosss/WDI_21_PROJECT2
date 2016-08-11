@@ -26,4 +26,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def rank_image
+    case recipes.count
+      when 0
+        "/items/logos_template/rank1.png"
+      when 1..2
+        "/items/logos_template/rank2.png"
+      when 3..4
+        "/items/logos_template/rank3.png"
+      when 5..6
+        "/items/logos_template/rank4.png"
+      when 7..100
+        "/items/logos_template/rank5.png"
+    end
+  end
 end

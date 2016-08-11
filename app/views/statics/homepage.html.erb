@@ -1,3 +1,4 @@
+<%= render "moving_div" %>
 <br>
 
 <div class="container-fluid">
@@ -19,18 +20,7 @@
             
             <p class="difficulty_in_img">
             <strong class="pacifico font_size" id="primary_color">Difficulty</strong> <br>
-              <% case recipe.difficulty %>
-              <% when 0 %>
-               <%= image_tag(("/items/logos_template/difficulty1.png"))%>
-              <% when 1..2 %>
-                <%= image_tag(("/items/logos_template/difficulty2.png"))%>
-              <% when 3..4 %>
-                <%= image_tag(("/items/logos_template/difficulty3.png"))%>
-              <% when 5..6 %>
-                <%= image_tag(("/items/logos_template/difficulty4.png"))%>
-              <% when 7..100 %>
-                <%= image_tag(("/items/logos_template/difficulty5.png"))%>
-            <% end %>
+              <%= image_tag(recipe.difficulty_image)%>
             </p>
 
             <p id="primary_color" class="time_in_img">

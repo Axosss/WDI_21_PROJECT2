@@ -17,18 +17,8 @@
     <p><%= @user.description %></p>
 
     <strong>Rank is :</strong>
-    <% case @user.recipes.count %>
-    <% when 0 %>
-    <p>Beginner <%= image_tag(("/items/logos_template/rank1.png"))%></p>
-    <% when 1..2 %>
-    <p>Kitchen commi <%= image_tag(("/items/logos_template/rank2.png"))%></p>
-    <% when 3..4 %>
-    <p>Chef  <%= image_tag(("/items/logos_template/rank3.png"))%></p>
-    <% when 5..6 %>
-    <p>Master <%= image_tag(("/items/logos_template/rank4.png"))%></p>
-    <% when 7..100 %>
-    <p>Gordon Ramsay <%= image_tag(("/items/logos_template/rank5.png"))%></p>
-    <% end %>
+   <%= image_tag(@user.rank_image)%>
+
 
     <% if current_user == @user %>
  
