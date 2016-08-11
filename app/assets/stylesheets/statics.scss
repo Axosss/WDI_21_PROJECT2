@@ -7,7 +7,104 @@
 }
 
 .difficulty_in_img {
-  top: 358px;
-  left: 200px;
-  position: relative;
+  margin-bottom: 13em;
+  float: right;
+  margin-right: 147px;
+  margin-top: 315px;
+}
+
+.time_in_img { 
+  float: left;
+  margin-left: 163px;
+  margin-top: 334px;
+
+}
+
+.font_size { 
+  font-size: 30px;
+}
+
+#recipe_time {
+  color: white;
+  font-size: 40px;
+}
+
+#min_font_size {
+  font-size: 25px;
+}
+
+.nav.navbar-nav {
+  right: 20px;
+
+}
+
+
+// @media screen and (max-width: 404px) {
+//   .nav.navbar-nav {
+
+
+
+
+
+@media screen and (max-width: 433px) {
+ .difficulty_in_img {
+   margin-bottom: 13em;
+   float: right;
+       margin-right: -185px;
+       margin-top: 280px;
+   
+ }
+
+ .time_in_img { 
+   float: left;
+   margin-left: 4px;
+   margin-top: 306px;
+ }
+}
+
+@media screen and (max-width: 767px) {
+ .difficulty_in_img {
+   margin-bottom: 13em;
+   float: right;
+   margin-right: -44px;
+   margin-top: 310px;
+ }
+
+ .time_in_img { 
+   float: left;
+   margin-left: -6px;
+   margin-top: 334px;
+ }
+}
+
+
+@media screen and (min-width: 767px) and (max-width: 991px) {
+ .difficulty_in_img {
+   margin-bottom: 13em;
+   float: right;
+   margin-right: 41px;
+   margin-top: 310px;
+ }
+
+ .time_in_img { 
+   float: left;
+   margin-left: 48px;
+   margin-top: 334px;
+ }
+}
+
+
+@media screen and (min-width: 1200px) {
+ .difficulty_in_img {
+   margin-bottom: 13em;
+   float: right;
+   margin-right: 247px;
+   margin-top: 310px;
+ }
+
+ .time_in_img { 
+   float: left;
+   margin-left: 260px;
+   margin-top: 334px;
+ }
 }

@@ -20,6 +20,7 @@ body {
   margin: 0 auto;
   text-align: center;
   // font-family: 'Pacifico', cursive;
+
 }
 
 
@@ -39,17 +40,7 @@ img {
   pointer-events: none;
 }
 
-.card-img.mainpage {
-  width: 550px;
-}
 
-// p.card-text{ 
-//   font-size: 1.25rem;
-// }
-
-h4.card-title.homepage {
-  font-size: 2.5rem;
-}
 
 .list-group-item { 
   max-width: 700px;
@@ -59,25 +50,24 @@ h4.card-title.homepage {
 .form-control {
   max-width: 700px;
   margin: 0 auto;
-  }
-
-  .form-control.new_recipe{
-     max-width: 400px;
+    &.new_recipe{
+     max-width: 500px;
      margin: 0 auto;
-   }
-
-
- .form-control.sign_up{
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .form-control.edit{
-     max-width: 400px;
-     margin: 0 auto;
-   }
-
-   .form-control.log_in{
-      max-width: 400px;
-      margin: 0 auto;
     }
+     &.sign_up{
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      &.edit{
+         max-width: 600px;
+         margin: 0 auto;
+       }
+
+       &.log_in{
+          max-width: 400px;
+          margin: 0 auto;
+        }
+  }
+  
+

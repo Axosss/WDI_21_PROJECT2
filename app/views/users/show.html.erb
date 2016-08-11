@@ -58,7 +58,7 @@
     
       <% @user.recipes.each do |recipe| %>
        <%= link_to recipe_path(recipe), class:'card-img' do %>
-          <div class="col-md-6">
+          <div class="col-lg-6">
             <div class="card card-inverse">
              <%= image_tag recipe.pictures.first.fourhundredf, class: "card-img" %>
               <div class="card-img-overlay">

@@ -23,7 +23,10 @@
             <%= image_tag(("/items/logos_template/rank5.png"))%>
         <% end %>
       </p>
-
+      <p>
+        <h3><%= image_tag("/items/logos_template/fork.png") %><u>Description:</u><%= image_tag("/items/logos_template/knife.png") %></h3>
+        <%= @recipe.description %>
+      </p>
 
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -34,6 +37,12 @@
 
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
+
+
+          <% if @recipe.pictures.present? %>
+            
+         
+
             <%= image_tag @recipe.pictures.first.sixhundredf, class:"crop" %>
           </div>
           <% @recipe.pictures.drop(1).each do |picture| %>
@@ -54,7 +63,9 @@
       </div>
       <% else %>
       <% end %>
-
+      <% else %>
+        <%= image_tag "/nopicture.png", class: "card-img mainpage" %>
+      <% end %>
       <p>
         <strong>Difficulty:</strong>
         <br>
@@ -79,8 +90,8 @@
     <div class="col-md-7">
 
       <p id="primary_color">
-        <strong>Total time</strong> <br>
-        <span id="recipe_time"><%= @recipe.preptime+@recipe.cooktime %></span> minutes
+        <strong id="total_time_recipe_show">Total time</strong> <br>
+        <span id="recipe_show_time"><%= @recipe.preptime+@recipe.cooktime %></span> minutes
       </p>
     </div>
 
@@ -107,10 +118,7 @@
   <div class="row">
     <div class="col-md-12">
 
-      <p>
-        <h3><%= image_tag("/items/logos_template/fork.png") %><u>Description:</u><%= image_tag("/items/logos_template/knife.png") %></h3>
-        <%= @recipe.description %>
-      </p>
+      
     
 
       <p>

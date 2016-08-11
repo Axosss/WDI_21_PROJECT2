@@ -1,5 +1,5 @@
 <br>
-<br>
+
 <div class="container-fluid">
   <div class="row">
 
@@ -7,12 +7,18 @@
    <%= link_to recipe_path(recipe), class:'card-img' do %>
       <div class="col-md-12">
         <div class="card card-inverse">
-         <%= image_tag recipe.pictures.first.fourhundredf, class: "card-img mainpage" %>
+          <% if recipe.pictures.present? %>
+            <%= image_tag recipe.pictures.first.fourhundredf, class: "card-img mainpage" %>
+          <% else %>
+            <%= image_tag "/nopicture.png", class: "card-img mainpage" %>
+          <% end %>
           <div class="card-img-overlay">
 
             <h4 class="card-title mainpage" id="pacifico"><%= recipe.title %></h4>
-            <p class="card-text"><%= recipe.description %></p>
+            <p class="card-text mainpage"><%= recipe.description %></p>
+            
             <p class="difficulty_in_img">
+            <strong class="pacifico font_size" id="primary_color">Difficulty</strong> <br>
               <% case recipe.difficulty %>
               <% when 0 %>
                <%= image_tag(("/items/logos_template/difficulty1.png"))%>
@@ -26,7 +32,12 @@
                 <%= image_tag(("/items/logos_template/difficulty5.png"))%>
             <% end %>
             </p>
-            <p class="card-text"><small class="text-muted"></small></p>
+
+            <p id="primary_color" class="time_in_img">
+              <strong class="pacifico font_size">Time</strong> <br>
+              <span id="recipe_time"><%= recipe.preptime+recipe.cooktime %></span> min
+            </p>
+            
           </div>
         </div>   
       </div>

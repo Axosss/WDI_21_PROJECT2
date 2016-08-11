@@ -1,29 +1,27 @@
+
 <nav class="navbar navbar-light bg-faded">
-  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
-    &#9776;
-  </button>
-  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-    <a class="navbar-brand" href="/" id="pacifico"><span><%= image_tag("/items/nav_bar/logo_cutlery.png") %></span> What's cooking</a>
+    <a class="navbar-brand" href="/" id="pacifico"><span><%= image_tag("/items/nav_bar/logo_cutlery.png") %></span id="nav_bar_text"> What's cooking</a>
     <ul class="nav navbar-nav">
       <% if current_user %>
         <li class="nav-item">
+          <%= link_to image_tag("/items/nav_bar/rank4.png"), user_path(current_user)  %>
           <%= link_to current_user.username, user_path(current_user), class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to image_tag("/items/nav_bar/logo_cutlery.png"), new_recipe_path, class:"nav-link" %>
+          <%= link_to image_tag("/items/nav_bar/add_recipe.png"), new_recipe_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link"  %>
+          <%= link_to image_tag("/items/nav_bar/log_out.png"), destroy_user_session_path, method: :delete%>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-link"  %>
         </li>
       <% else %>
         <li class="nav-item">
-          <a class="nav-link" href="/users/sign_in">Sign in<span class="sr-only">(current)</span></a>
+         <%= link_to image_tag("/items/nav_bar/log_in.png"), user_session_path, class:"nav-link"  %>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/users/sign_up">Register</a>
+          <%= link_to image_tag("/items/nav_bar/register.png"), new_user_registration_path, class:"nav-link"  %>
         </li>
       <% end %>
     </ul>
-  </div>
 </nav>

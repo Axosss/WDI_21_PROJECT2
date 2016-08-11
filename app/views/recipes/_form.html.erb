@@ -12,25 +12,27 @@
   <% end %>
 
   <fieldset class="form-group">
-
+    <%= f.label :"Title of your chef d'oeuvre" %>
     <%= f.text_field :title, placeholder: "Recipe Title", class: "form-control new_recipe", autofocus: true %>
   </fieldset>
 
   <fieldset class="form-group">
-
+    <%= f.label :description %>
     <%= f.text_area :description, placeholder: "Quick description of your chef-d'oeuvre", class: "form-control new_recipe" %>
   </fieldset>
 
   <fieldset class="form-group">
-
-    <%= f.number_field :difficulty, placeholder: "Difficulty", class: "form-control new_recipe" %> From 1-5
+  <%= f.label :difficulty %>
+    <%= f.number_field :difficulty, placeholder: "How difficult is it to do it? (from 1 to 5)", class: "form-control new_recipe" %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.number_field :servings, placeholder: "Servings", class: "form-control new_recipe" %> person(s)
+    <%= f.label :servings %>
+    <%= f.number_field :servings, placeholder: "How many person can eat it ?", class: "form-control new_recipe" %> 
   </fieldset>
 
   <fieldset class="form-group">
+  <%= f.label :"Upload a picture" %>
    <%= f.file_field :pictures, multiple: true, class:"form-control new_recipe", accept: "image/jpeg, image/jpg, image/gif, image/png" %>
   </fieldset> 
 
@@ -43,10 +45,12 @@
 
 
   <fieldset class="form-group">
+    <%= f.label :preptime %>
     <%= f.number_field :preptime, placeholder: "Preptime", class: "form-control new_recipe" %>
   </fieldset>
 
   <fieldset class="form-group">
+    <%= f.label :cooktime %>
     <%= f.number_field :cooktime, placeholder: "Cooktime", class: "form-control new_recipe" %>
   </fieldset>
 
@@ -61,7 +65,7 @@
     <input type="text" name="ingredient" class="form-control new_recipe" placeholder="Add an ingredient">
   </fieldset>
 
-
+<br>
   <fieldset>
     <%= f.label :directions %>
     <%= f.hidden_field :directions, value: recipe.directions %>

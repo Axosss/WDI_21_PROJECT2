@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'comments/update'
 
+
+
 #C# Added comments to resources 
   resources :recipes ,except: :index #I dont need the index page because all i need from it is in my static one now
 
@@ -18,4 +20,5 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: "user"
 
+  get "/intro", to: "static#show"
 end

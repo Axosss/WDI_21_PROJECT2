@@ -1,0 +1,28 @@
+.navbar-nav.nav-link {
+    padding-top: -1.575rem;
+  }
+
+
+a.nav-link {
+  z-index: 1;
+  color: white !important;
+}
+a.nav-link:hover {
+  z-index: 1;
+  color: grey !important;
+}
+
+.bg-faded {
+    background-color: #159a7f !important;
+}
+
+
+
+.navbar-brand {
+   color: white !important;
+}
+
+.navbar {
+  border-radius: 0px !important;
+  box-shadow: 1px 1px 2px #999;
+}
