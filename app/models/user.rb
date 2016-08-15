@@ -29,9 +29,9 @@ class User < ApplicationRecord
 
   def rank_image
     case recipes.count
-      when 0
+      when 1
         "/items/logos_template/rank1.png"
-      when 1..2
+      when 2
         "/items/logos_template/rank2.png"
       when 3..4
         "/items/logos_template/rank3.png"

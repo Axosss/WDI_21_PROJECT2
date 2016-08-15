@@ -21,7 +21,7 @@
 
 
     <% if current_user == @user %>
- 
+ <br>
         <strong> You have :</strong> <p> <%= @user.recipes.count %> points </p>
         <em>How does it works ? </em>
         <br>
@@ -43,7 +43,7 @@
 
 
     <!-- Link to all of user recipes -->
-     <h1 class="pacifico"> Chef recipes </h1>
+     <h1 class="pacifico"> Chef recipes (<%= @user.recipes.count %>)</h1>
      <hr>
     
       <% @user.recipes.each do |recipe| %>

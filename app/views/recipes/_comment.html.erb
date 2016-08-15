@@ -25,10 +25,13 @@
 
           </h5>
           <h4 align="left"><%= comment.title %></h4>
-          <p align="left"><%= comment.content %> <% if @recipe.user_id == current_user.id %>
+          <p align="left"><%= comment.content %> 
+          <% if @recipe.user_id == current_user.id %>
           <!-- Delete button : if ... is here so only the user who made it can delete it  -->
-          <br><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %></p>
+          
+            <!-- <br><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+            </p>
+          <% end %>
 
         </div>
         <hr>
